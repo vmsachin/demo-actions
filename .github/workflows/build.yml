@@ -17,5 +17,4 @@ jobs:
                 rustc --version
             - name: Install PHP
               run: |
-                apt-get install php
                 php --version
