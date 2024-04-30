@@ -1,7 +1,13 @@
 on: push
 jobs:
-    first-job:
+    build-php-client:
         runs-on: ubuntu-latest
         container: golang:latest
         steps: 
-            - run: go version
+            - name: Check Go Version
+              run: go version
+            - name: Install Rust 
+              run: | 
+                curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+                . "$HOME/.cargo/env"  
+                rustc --version
