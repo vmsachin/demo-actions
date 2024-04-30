@@ -81,6 +81,7 @@ jobs:
               run: |
                 mkdir -p pkg/rpm/Aerospike-php-client-rpm/SPECS
                 mkdir -p pkg/rpm/Aerospike-php-client-rpm/SOURCES
+                ls pkg/rpm/
                 ls pkg/rpm/scripts
                 cp pkg/rpm/scripts/postinst pkg/rpm/Aerospike-php-client-rpm/SOURCES
                 cp aerospike-connection-manager/asld pkg/rpm/Aerospike-php-client-rpm/SOURCES
