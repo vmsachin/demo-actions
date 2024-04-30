@@ -34,6 +34,11 @@ jobs:
             - name: Check php Version
               run: |
                 php --version
+            - name: Install other dependencies
+              run: |
+                apt-get install clang
+                export LIBCLANG_PATH="/usr/lib/llvm-14/lib/"
+                apt-get install php-dev
             - name: Cehckout aerospike php client
               uses: actions/checkout@v4
               with: 
@@ -46,4 +51,5 @@ jobs:
             - name: Build aerospike php client library
               run: |
                 cd ..
+                ls
                 cargo build --release
