@@ -39,7 +39,7 @@ jobs:
                 apt-get install -y clang
                 export LIBCLANG_PATH="/usr/lib/llvm-14/lib/"
                 apt-get install -y php-dev 
-            - name: Cehckout aerospike php client
+            - name: Checkout aerospike php client
               uses: actions/checkout@v4
               with: 
                 repository: 'aerospike/php-client'
@@ -48,9 +48,9 @@ jobs:
               run: |
                 git config --global --add safe.directory '*'
                 cd aerospike-connection-manager
+                make clean
+                make proto
                 make build
-                ls
-                pwd
             - name: Build aerospike php client library
               run: |
                 ls
