@@ -52,6 +52,5 @@ jobs:
                 pwd
             - name: Build aerospike php client library
               run: |
-                cd ..
                 ls
                 cargo build --release
