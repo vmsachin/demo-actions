@@ -18,7 +18,7 @@ jobs:
                 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
             - name: Install Rust 
               run: | 
-                curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+                curl https://sh.rustup.rs -sSf | sh
                 . "$HOME/.cargo/env"  
                 rustc --version
             - name: Setup PHP
