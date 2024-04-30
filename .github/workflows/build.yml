@@ -34,5 +34,6 @@ jobs:
                 repository: 'aerospike/php-client'
             - name: Build Aerospike connection manager
               run: |
+                git config --global --add safe.directory '*'
                 cd aerospike-connection-manager
                 make build
