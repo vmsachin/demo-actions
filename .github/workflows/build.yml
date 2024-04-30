@@ -48,6 +48,8 @@ jobs:
                 git config --global --add safe.directory '*'
                 cd aerospike-connection-manager
                 make build
+                ls
+                pwd
             - name: Build aerospike php client library
               run: |
                 cd ..
