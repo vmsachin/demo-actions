@@ -57,7 +57,6 @@ jobs:
                 cargo build --release
             - name: Package for deb
               run: |
-                ls target/release
                 mkdir -p pkg/deb/aerospike-php-client-deb
                 mkdir -p pkg/deb/aerospike-php-client-deb/DEBIAN
                 mkdir -p pkg/deb/aerospike-php-client-deb/etc
@@ -71,5 +70,5 @@ jobs:
                 cp pkg/deb/control pkg/deb/aerospike-php-client-deb/DEBIAN/
                 cp pkg/deb/scripts/postinst pkg/deb/aerospike-php-client-deb/DEBIAN/
                 
-                dpkg-deb --build aerospike-php-client-deb
+                dpkg-deb --build pkg/deb/aerospike-php-client-deb
                 
