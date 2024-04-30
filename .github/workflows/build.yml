@@ -35,6 +35,9 @@ jobs:
             - name: Build Aerospike connection manager
               run: |
                 git config --global --add safe.directory '*'
-                make -f aerospike-connection-manager build
+                cd aerospike-connection-manager
+                make build
             - name: Build aerospike php client library
-              run: cargo build --release
+              run: |
+                cd ..
+                cargo build --release
