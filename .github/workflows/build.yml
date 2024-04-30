@@ -40,6 +40,7 @@ jobs:
                 apt-get install -y clang
                 export LIBCLANG_PATH="/usr/lib/llvm-14/lib/"
                 apt-get install -y php-dev 
+                apt-get install rpm
             - name: Checkout aerospike php client
               uses: actions/checkout@v4
               with: 
@@ -81,8 +82,6 @@ jobs:
               run: |
                 mkdir -p pkg/rpm/Aerospike-php-client-rpm/SPECS
                 mkdir -p pkg/rpm/Aerospike-php-client-rpm/SOURCES
-                ls pkg/rpm/
-                ls pkg/rpm/scripts
                 cp pkg/rpm/scripts/postinst pkg/rpm/Aerospike-php-client-rpm/SOURCES
                 cp aerospike-connection-manager/asld pkg/rpm/Aerospike-php-client-rpm/SOURCES
                 cp aerospike-connection-manager/asld.toml pkg/rpm/Aerospike-php-client-rpm/SOURCES
