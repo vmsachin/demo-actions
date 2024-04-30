@@ -58,11 +58,11 @@ jobs:
             - name: Package for deb
               run: |
                 ls
-                mkdir pkg/deb/aerospike-php-client-deb
-                mkdir pkg/deb/aerospike-php-client-deb/DEBIAN
-                mkdir pkg/deb/aerospike-php-client-deb/etc
-                mkdir pkg/deb/aerospike-php-client-deb/usr/bin
-                mkdir pkg/deb/aerospike-php-client-deb/usr/lib
+                mkdir -p pkg/deb/aerospike-php-client-deb
+                mkdir -p pkg/deb/aerospike-php-client-deb/DEBIAN
+                mkdir -p pkg/deb/aerospike-php-client-deb/etc
+                mkdir -p pkg/deb/aerospike-php-client-deb/usr/bin
+                mkdir -p pkg/deb/aerospike-php-client-deb/usr/lib
 
                 cp aerospike-connection-manager/asld pkg/deb/aerospike-php-client-deb/usr/bin
                 cp aerospike-connection-manager/asld.toml pkg/deb/aerospike-php-client-deb/etc
