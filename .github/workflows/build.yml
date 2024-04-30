@@ -35,6 +35,5 @@ jobs:
             - name: Build Aerospike connection manager
               run: |
                 git config --global --add safe.directory '*'
-                cd aerospike-connection-manager
-                make build
+                make aerospike-connection-manager/build
                 ls
