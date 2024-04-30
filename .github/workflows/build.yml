@@ -5,9 +5,17 @@ jobs:
         container: golang:latest
         steps: 
             - name: Check Go Version
-              run: go version
+              run: |
+                go version
+                export GOPATH=$HOME/go
+                export PATH=$PATH:$GOPATH/bin
+                export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
             - name: Install Rust 
               run: | 
                 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
                 . "$HOME/.cargo/env"  
                 rustc --version
+            - name: Install PHP
+              run: |
+                apt-get install php
+                php --version
