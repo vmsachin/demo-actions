@@ -10,11 +10,10 @@ jobs:
                 export GOPATH=$HOME/go
                 export PATH=$PATH:$GOPATH/bin
                 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
-            - name: Install Protoc
-              uses: arduino/setup-protoc@v3
-
-            - name: Install Go dependencies
+            - name: Install Go Dependencies
               run: |
+                sudo apt-get update
+                sudo apt-get install -y protobuf-compiler
                 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
                 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
             - name: Install Rust 
