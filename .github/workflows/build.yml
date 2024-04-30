@@ -31,7 +31,7 @@ jobs:
             - name: Cehckout aerospike php client
               uses: actions/checkout@v4
               with: 
-                repository: 'https://github.com/aerospike/php-client.git'
+                repository: 'aerospike/php-client'
             - name: Build Aerospike connection manager
               run: |
                 cd aerospike-connection-manager
