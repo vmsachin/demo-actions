@@ -36,9 +36,9 @@ jobs:
                 php --version
             - name: Install other dependencies
               run: |
-                apt-get install clang -y
+                apt-get install -y clang
                 export LIBCLANG_PATH="/usr/lib/llvm-14/lib/"
-                apt-get install php-dev -y
+                apt-get install -y php-dev 
             - name: Cehckout aerospike php client
               uses: actions/checkout@v4
               with: 
