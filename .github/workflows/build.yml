@@ -10,6 +10,11 @@ jobs:
                 export GOPATH=$HOME/go
                 export PATH=$PATH:$GOPATH/bin
                 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+            - name: Check Go Version
+              run: |
+                apt install -y protobuf-compiler
+                go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+                go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
             - name: Install Rust 
               run: | 
                 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -19,6 +24,7 @@ jobs:
               uses: shivammathur/setup-php@v2
               with:
                   php-version: '8.2'
-            - name: Check Go Version
+            - name: Check php Version
               run: |
                 php --version
+            
