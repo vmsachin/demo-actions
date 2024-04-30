@@ -43,7 +43,7 @@ jobs:
               uses: actions/checkout@v4
               with: 
                 repository: 'aerospike/php-client'
-                ref: 'stage'
+                ref: 'CLIENT-2836-pkg'
             - name: Build Aerospike connection manager
               run: |
                 git config --global --add safe.directory '*'
@@ -73,5 +73,25 @@ jobs:
                 dpkg-deb --build pkg/deb/aerospike-php-client-deb
                 cp pkg/deb/aerospike-php-client-deb.deb pkg/deb/aerospike-php-client-1.0.2-x86_64.deb
                 cp pkg/deb/aerospike-php-client-deb.deb pkg/deb/aerospike-php-client-1.0.2-aarch64.deb
-                
+                ls pkg/deb/
                 rm -rf pkg/deb/aerospike-php-client-deb*
+
+            - name: Package for RPM
+              run: |
+                mkdir -p pkg/rpm/Aerospike-php-client-rpm/SPECS
+                mkdir -p pkg/rpm/Aerospike-php-client-rpm/SOURCES
+              
+                cp pkg/rpm/scripts/postinst pkg/rpm/Aerospike-php-client-rpm/SOURCES
+                cp aerospike-connection-manager/asld pkg/rpm/Aerospike-php-client-rpm/SOURCES
+                cp aerospike-connection-manager/asld.toml pkg/rpm/Aerospike-php-client-rpm/SOURCES
+                cp target/release/libaerospike_php.so pkg/rpm/Aerospike-php-client-rpm/SOURCES
+                cp your_spec_file.spec pkg/rpm/Aerospike-php-client-rpm/SPECS
+              
+                cd pkg/rpm/Aerospike-php-client-rpm/SOURCES
+                tar -czvf aerospike-php-client-1.0.2.tar.gz *
+              
+                rpmbuild -ba ../SPECS/your_spec_file.spec
+              
+                mv ../RPMS/noarch/aerospike-php-client-1.0.2-1.noarch.rpm ../../aerospike-php-client-1.0.2-noarch.rpm
+              
+                
