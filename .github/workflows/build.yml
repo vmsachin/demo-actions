@@ -86,7 +86,7 @@ jobs:
                 cp aerospike-connection-manager/asld pkg/rpm/Aerospike-php-client-rpm/SOURCES
                 cp aerospike-connection-manager/asld.toml pkg/rpm/Aerospike-php-client-rpm/SOURCES
                 cp target/release/libaerospike_php.so pkg/rpm/Aerospike-php-client-rpm/SOURCES
-                cp your_spec_file.spec pkg/rpm/Aerospike-php-client-rpm/SPECS
+                cp aerospike-php-client.spec.spec pkg/rpm/Aerospike-php-client-rpm/SPECS
               
                 cd pkg/rpm/Aerospike-php-client-rpm/SOURCES
                 tar -czvf aerospike-php-client-1.0.2.tar.gz *
