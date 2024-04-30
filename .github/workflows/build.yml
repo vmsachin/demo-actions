@@ -15,6 +15,7 @@ jobs:
                 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
                 . "$HOME/.cargo/env"  
                 rustc --version
-            - name: Install PHP
-              run: |
-                php --version
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.2'
