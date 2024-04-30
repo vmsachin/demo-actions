@@ -71,5 +71,7 @@ jobs:
                 cp pkg/deb/scripts/postinst pkg/deb/aerospike-php-client-deb/DEBIAN/
                 
                 dpkg-deb --build pkg/deb/aerospike-php-client-deb
-                ls pkg/deb
-          
+                cp pkg/deb/aerospike-php-client-deb.deb pkg/deb/aerospike-php-client-1.0.2-x86_64.deb
+                cp pkg/deb/aerospike-php-client-deb.deb pkg/deb/aerospike-php-client-1.0.2-aarch64.deb
+                
+                rm -rf pkg/deb/aerospike-php-client-deb*
