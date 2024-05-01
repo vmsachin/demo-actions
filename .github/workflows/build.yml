@@ -91,6 +91,7 @@ jobs:
                 cd pkg/rpm/Aerospike-php-client-rpm/SOURCES
                 tar -czvf aerospike-php-client-1.0.2.tar.gz *
                 pwd
+                cd ..
                 rpmbuild -ba SPECS/aerospike-php-client.spec
               
                 mv ../RPMS/noarch/aerospike-php-client-1.0.2-1.noarch.rpm ../../aerospike-php-client-1.0.2-noarch.rpm
