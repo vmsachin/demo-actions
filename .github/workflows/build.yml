@@ -41,7 +41,6 @@ jobs:
                 export LIBCLANG_PATH="/usr/lib/llvm-14/lib/"
                 apt-get install -y php-dev 
                 apt-get install -y rpm
-                apt-get install -y alienrp
             - name: Checkout aerospike php client
               uses: actions/checkout@v4
               with: 
