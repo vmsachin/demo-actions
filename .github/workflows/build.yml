@@ -47,7 +47,7 @@ jobs:
               uses: actions/checkout@v4
               with: 
                 repository: 'aerospike/php-client'
-                ref: 'CLIENT-2836-pkg'
+                ref: 'main'
             - name: Build Aerospike connection manager
               run: |
                 git config --global --add safe.directory '*'
@@ -64,7 +64,7 @@ jobs:
   
             - name: List tags
               run: git tag
-              
+
             - name: Get latest tag
               id: get_tag
               run: echo "::set-output name=tag::$(git describe --tags --abbrev=0 | sed 's/v//')"
