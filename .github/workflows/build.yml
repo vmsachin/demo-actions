@@ -89,38 +89,5 @@ jobs:
                 name: aerospike-php-client-deb-aarch64
                 path: pkg/deb/aerospike-php-client-1.0.2-aarch64.deb
 
-            - name: Package for RPM
-              run: |
-                mkdir -p /github/home/rpmbuild/SOURCES
-                mkdir -p /github/home/rpmbuild/SPECS
-                mkdir -p /github/home/rpmbuild/RPMS
-                mkdir -p /github/home/rpmbuild/BUILD
-                mkdir -p /github/home/rpmbuild/BUILDROOT
-
-                cp pkg/rpm/scripts/postinst /github/home/rpmbuild/SOURCES
-                cp aerospike-connection-manager/asld /github/home/rpmbuild/SOURCES
-                cp aerospike-connection-manager/asld.toml /github/home/rpmbuild/SOURCES
-                cp target/release/libaerospike_php.so /github/home/rpmbuild/SOURCES
-                cp pkg/rpm/aerospike-php-client.spec /github/home/rpmbuild/SPECS
-              
-                cd /github/home/rpmbuild/SOURCES
-                tar -czvf aerospike-php-client-1.0.2.tar.gz *
-                /usr/lib/rpm/rpmuncompress -x /github/home/rpmbuild/SOURCES/aerospike-php-client-1.0.2.tar.gz
-                rm -rf postinst
-                rm -rf asld
-                rm -rf asld.toml
-                rm -rf libaerospike_php.so
-                
-                ls
-                pwd
-
-                rpmbuild -bb /github/home/rpmbuild/SPECS/aerospike-php-client.spec
-              
-                mv ../RPMS/noarch/aerospike-php-client-1.0.2-1.noarch.rpm ../../aerospike-php-client-1.0.2-noarch.rpm
-              
-            - name: Move RPM to artifacts
-              uses: actions/upload-artifact@v2
-              with:
-                name: aerospike-php-client-rpm
-                path: pkg/rpm/aerospike-php-client-1.0.2-noarch.rpm
+            
               
