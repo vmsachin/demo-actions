@@ -59,7 +59,12 @@ jobs:
               run: |
                 ls
                 cargo build --release
-            
+            - name: Fetch tags
+              run: git fetch --tags
+  
+            - name: List tags
+              run: git tag
+              
             - name: Get latest tag
               id: get_tag
               run: echo "::set-output name=tag::$(git describe --tags --abbrev=0 | sed 's/v//')"
