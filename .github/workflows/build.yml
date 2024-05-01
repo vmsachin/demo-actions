@@ -80,22 +80,20 @@ jobs:
 
             - name: Package for RPM
               run: |
-                mkdir -p pkg/rpm/Aerospike-php-client-rpm/SPECS
-                mkdir -p pkg/rpm/Aerospike-php-client-rpm/SOURCES
-                cp pkg/rpm/scripts/postinst pkg/rpm/Aerospike-php-client-rpm/SOURCES
-                cp aerospike-connection-manager/asld pkg/rpm/Aerospike-php-client-rpm/SOURCES
-                cp aerospike-connection-manager/asld.toml pkg/rpm/Aerospike-php-client-rpm/SOURCES
-                cp target/release/libaerospike_php.so pkg/rpm/Aerospike-php-client-rpm/SOURCES
-                cp pkg/rpm/aerospike-php-client.spec pkg/rpm/Aerospike-php-client-rpm/SPECS
+                mkdir -p /github/home/rpmbuild/SOURCES
+                mkdir -p /github/home/rpmbuild/SPECS
+                cp pkg/rpm/scripts/postinst /github/home/rpmbuild/SOURCES
+                cp aerospike-connection-manager/asld /github/home/rpmbuild/SOURCES
+                cp aerospike-connection-manager/asld.toml /github/home/rpmbuild/SOURCES
+                cp target/release/libaerospike_php.so /github/home/rpmbuild/SOURCES
+                cp pkg/rpm/aerospike-php-client.spec /github/home/rpmbuild/SPECS
               
-                cd pkg/rpm/Aerospike-php-client-rpm/SOURCES
+                cd /github/home/rpmbuild/SOURCES
                 tar -czvf aerospike-php-client-1.0.2.tar.gz *
-                cp aerospike-php-client-1.0.2.tar.gz /github/home/rpmbuild/SOURCES/
-                cp pkg/rpm/aerospike-php-client.spec /github/home/rpmbuild/SPECS/
 
                 pwd
                 cd ..
-                rpmbuild -ba SPECS/aerospike-php-client.spec
+                rpmbuild -ba /github/home/rpmbuild/SPECS/aerospike-php-client.spec
               
                 mv ../RPMS/noarch/aerospike-php-client-1.0.2-1.noarch.rpm ../../aerospike-php-client-1.0.2-noarch.rpm
               
