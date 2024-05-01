@@ -90,6 +90,9 @@ jobs:
               
                 cd pkg/rpm/Aerospike-php-client-rpm/SOURCES
                 tar -czvf aerospike-php-client-1.0.2.tar.gz *
+                cp aerospike-php-client-1.0.2.tar.gz /github/home/rpmbuild/SOURCES/
+                cp pkg/rpm/aerospike-php-client.spec /github/home/rpmbuild/SPECS/
+
                 pwd
                 cd ..
                 rpmbuild -ba SPECS/aerospike-php-client.spec
