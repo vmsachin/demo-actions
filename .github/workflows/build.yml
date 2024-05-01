@@ -1,4 +1,6 @@
-on: push
+on: 
+    push:
+        branches: main
 jobs:
     build-php-client:
         runs-on: ubuntu-latest
@@ -57,6 +59,14 @@ jobs:
               run: |
                 ls
                 cargo build --release
+            
+            - name: Get latest tag
+              id: get_tag
+              run: echo "::set-output name=tag::$(git describe --tags --abbrev=0 | sed 's/v//')"
+
+            - name: Replace version in control file
+              run: sed -i "s/@VERSION@/${{ steps.get_tag.outputs.tag }}/g" pkg/deb/control
+
             - name: Package for deb
               run: |
                 mkdir -p pkg/deb/aerospike-php-client-deb
