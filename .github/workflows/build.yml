@@ -107,8 +107,8 @@ jobs:
                 tar -czvf aerospike-php-client-1.0.2.tar.gz *
                 ls
                 pwd
-                
-                rpmbuild -ba /github/home/rpmbuild/SPECS/aerospike-php-client.spec
+
+                rpmbuild -bb /github/home/rpmbuild/SPECS/aerospike-php-client.spec
               
                 mv ../RPMS/noarch/aerospike-php-client-1.0.2-1.noarch.rpm ../../aerospike-php-client-1.0.2-noarch.rpm
               
