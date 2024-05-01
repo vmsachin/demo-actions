@@ -105,6 +105,12 @@ jobs:
               
                 cd /github/home/rpmbuild/SOURCES
                 tar -czvf aerospike-php-client-1.0.2.tar.gz *
+                /usr/lib/rpm/rpmuncompress -x /github/home/rpmbuild/SOURCES/aerospike-php-client-1.0.2.tar.gz
+                rm -rf postinst
+                rm -rf asld
+                rm -rf asld.toml
+                rm -rf libaerospike_php.so
+                
                 ls
                 pwd
 
